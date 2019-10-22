@@ -1,0 +1,11 @@
+[alias]
+	f = fetch
+	s = status
+	a = add -A
+	cm = commit -m
+	au = add -u
+[user]
+	email = rdskifreak@gmail.com
+	name = robert-dunn
+[credential]
+	helper = cache --timeout 3600
