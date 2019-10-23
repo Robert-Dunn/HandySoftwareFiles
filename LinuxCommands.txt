@@ -1,0 +1,5 @@
+Running bash shell scripts: sudo ./"name of .sh file"
+
+downloading all 32 bit libraries: sudo apt-get install ia32-libs
+	this is needed for MPLab (and probably other) C compilers
+
