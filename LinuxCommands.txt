@@ -1,7 +1,17 @@
-Running bash shell scripts: sudo ./"name of .sh file"
+Running bash shell scripts: 
+sudo ./"name of .sh file"
 
-downloading all 32 bit libraries: sudo apt-get install ia32-libs
-	this is needed for MPLab (and probably other) C compilers
+downloading all 32 bit libraries (this is needed for MPLab (and probably other) C compilers):
+sudo apt-get install ia32-libs
+
+Downloading neovim
+sudo apt-get install neovim
+
+downloading i3
+sudo apt-get install i3
+sudo apt-get install i3status
+sudo apt-get install dmenu
+
 
 # for installing neovim autocompletion
 sudo apt install python3-pip
