@@ -3,3 +3,10 @@ Running bash shell scripts: sudo ./"name of .sh file"
 downloading all 32 bit libraries: sudo apt-get install ia32-libs
 	this is needed for MPLab (and probably other) C compilers
 
+# for installing neovim autocompletion
+sudo apt install python3-pip
+sudo apt-get install -y python3-setuptools
+pip3 install --user pynvim
+
+Adjust brigthness on Mac Laptop
+xrandr --output LVDS-1 --brightness 0.55
