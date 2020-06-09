@@ -1,0 +1,91 @@
+Python Notes from Book
+Regexes Chapter 7
+
+snagging a phone num
+	phoneNumRegex = re.compile(r'\d{3}-\d{3}-\d{4}')
+	mo = phoneNumRegex.search('My number is 415-555-4242.')
+	print('Phone number found: ' + mo.group())
+
+snagging same phone useing groups in brackets
+	phoneNumRegex = re.compile(r'(\d{3})-(\d{3}-\d{4}'))
+	mo = phoneNumRegex.search('My number is 415-555-4242.')
+	print('Area code found: ' + mo.group(1))
+	print('Main part of num found: ' + mo.group(2))
+
+Note about groups: group() == group(0) == all groups combined in one string
+Groups is different
+
+group vs groups
+	phoneNumRegex = re.compile(r'(\d{3})-(\d{3}-\d{4}'))
+	mo = phoneNumRegex.search('My number is 415-555-4242.')
+	mo.groups()
+		output: ('415', '555-4242')
+	mo.group()
+		output: '415-555-4242'
+
+groups using multiple assignment trick
+	areaCode, mainNumber = mo.groups()
+	print(areaCode)
+		otput: 415
+
+excape character: Including op chars in your string
+	if you want to include brackets on the area code, you must escape. 
+	phoneNumRegex = re.compile(r'(\(\d{3}\))-(\d{3}-\d{4}'))
+	mo = phoneNumRegex.search('My number is (415)-555-4242.')
+	mo.groups()
+		output: ('(415'), '555-4242')
+	mo.group()
+		output: '(415)-555-4242'
+
+Other Op Chars that will need escaping
+	. ^ $ * + ? { } [ ] \ | ( ) 
+
+Matching multiple groups with pipe (the first string matched will be taken)
+	heroRegex = re.compile(r'Batman|Tina Fey')
+	mo1 = heroRegex.search('Batman and Robbin')
+	mo1.group()
+		output: 'Batman'
+	mo2 = heroRegex.search('Robbin and Batman')
+	mo2.group()
+		output: 'Robbin'
+
+Matching multiple parts of the same string
+	batRegex = re.complile(r'Bat(man|mobile|copter|bat)')
+	mo = batRegex.search('Batmobile lost a wheel')
+	mo.group()
+		output: 'batmobile'
+	mo.group(1)
+		output: 'mobile'
+
+Note: mo.group(1) returns just the part of the matched text 
+inside the first parentheses group, 'mobile'
+
+Optional matching with the question mark
+(find a match regardless of whether that text is there.) 
+	batRegex = re.compile(r'Bat(wo)?man')
+
+Matching zero or more with the *
+	batRegex = re.compile(r'Bat(wo)*man')
+	mo1 = batRegex.search('The Advenctures of Batman')
+	mo1.group()
+		output: 'Batman'
+	mo1 = batRegex.search('The Advenctures of Batwowowowoman')
+	mo1.group()
+		output: 'Batwowowowoman'
+
+Matching one or more with the +
+	exact same as *, but Batman (above) would not match
+	so above, mo1 == None would return true.
+
+Matching specific repititions with braces
+	(Ha){3} will match HaHaHa
+	(Ha){3,5} will match 3, 4, or 5 reps	
+	(Ha){,3} will match 0 to 3 repititions
+
+Greedy vs non-greedy matching 
+	regexes in python are greedy by default
+	use a ? to make them non greedy
+	
+	greedyHaRegex = re.compile(r'(Ha){3,5}
+
+
