@@ -1,0 +1,14 @@
+#cd's
+alias repos='cd C:/Users/robdunn/Documents/Repos'
+alias splunk='cd C:/Users/robdunn/Documents/Repos/fft_qe/Splunk'
+alias robdunn='cd C:/Users/robdunn/Documents/Repos/robdunn'
+alias handy='cd C:/Users/robdunn/Documents/Repos/HandySoftwareFiles'
+
+#change vim to nvim
+alias vim='nvim'
+alias vi='nvim'
+
+#nvim open files
+alias ovimrc='vim ~/.vim/vimrc'
+alias onvim='vim ~/.config/nvim/init.vim'
+alias obashrc='vim ~/.bashrc'
